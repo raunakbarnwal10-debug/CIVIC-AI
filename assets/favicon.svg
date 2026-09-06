@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <defs>
+    <linearGradient id="civicGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2563eb" />
+      <stop offset="100%" stop-color="#4f46e5" />
+    </linearGradient>
+  </defs>
+  <rect width="32" height="32" rx="8" fill="url(#civicGrad)" />
+  <path d="M16 6 L24 10 V16 C24 21 16 26 16 26 C16 26 8 21 8 16 V10 Z" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="16" cy="15" r="2.5" fill="#38bdf8" />
+  <path d="M16 11 V13 M16 17 V19 M12 15 H14 M18 15 H20" stroke="#38bdf8" stroke-width="1.5" stroke-linecap="round"/>
+</svg>

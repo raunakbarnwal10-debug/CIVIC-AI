@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CIVIC AI — "Your Voice. Our Priority." | Digital Public Infrastructure MVP</title>
+  <meta name="description" content="AI-powered citizen infrastructure complaint and grievance redressal platform for Digital Public Infrastructure & Governance.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  
+  <!-- Google Fonts: Plus Jakarta Sans & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- =========================================================================
+       NAVIGATION BAR
+       ========================================================================= -->
+  <nav class="navbar" id="main-navbar">
+    <div class="container nav-container">
+      <div class="nav-brand" onclick="CivicApp.navigateTo('landing')">
+        <div class="brand-icon">🏛️</div>
+        <span>CIVIC AI</span>
+        <span class="brand-badge">DPI MVP</span>
+      </div>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a class="nav-link active" data-view="landing" onclick="CivicApp.navigateTo('landing')"><span>🏠</span> Home</a></li>
+        <li><a class="nav-link" data-view="report" onclick="CivicApp.navigateTo('report')"><span>📝</span> Report Issue</a></li>
+        <li><a class="nav-link" data-view="dashboard" onclick="CivicApp.navigateTo('dashboard')"><span>📊</span> Dashboard</a></li>
+        <li><a class="nav-link" data-view="about" onclick="CivicApp.navigateTo('about')"><span>ℹ️</span> About</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="btn-demo-quick" id="btn-quick-demo" onclick="CivicApp.runQuickDemo()" title="Auto-fill judges' test case">
+          <span class="sparkle">⚡</span> Quick Demo
+        </button>
+        <button class="mobile-menu-toggle" id="mobile-menu-toggle" onclick="CivicApp.toggleMobileMenu()" aria-label="Toggle Navigation">
+          ☰
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- =========================================================================
+       MAIN APPLICATION VIEW CONTAINER
+       ========================================================================= -->
+  <main id="app-main-content">
+
+    <!-- -----------------------------------------------------------------------
+         VIEW 1: LANDING PAGE
+         ----------------------------------------------------------------------- -->
+    <section class="view-section active" id="view-landing">
+      <!-- Hero Section -->
+      <div class="hero-section">
+        <div class="container">
+          <div class="hero-grid">
+            <div class="hero-content">
+              <div class="pill-badge">
+                <span class="pill-dot"></span>
+                <span>AI for Digital Public Infrastructure & Governance</span>
+              </div>
+              <h1 class="hero-title">
+                Turn Citizen Voices Into <span class="gradient-text">Better Infrastructure</span>
+              </h1>
+              <p class="hero-subtitle">
+                Report local problems. Let Civic AI analyze and prioritize them. Transform unstructured citizen grievances into instant, actionable governance data.
+              </p>
+              <div class="hero-buttons">
+                <button class="btn btn-primary btn-lg" onclick="CivicApp.navigateTo('report')">
+                  <span>📢</span> Report an Issue
+                </button>
+                <button class="btn btn-secondary btn-lg" onclick="CivicApp.navigateTo('dashboard')">
+                  <span>📈</span> View Dashboard
+                </button>
+              </div>
+              
+              <!-- Quick Stats Ticker -->
+              <div class="hero-stats-strip">
+                <div class="hero-stat-item">
+                  <span class="hero-stat-val" id="landing-stat-total">12+</span>
+                  <span class="hero-stat-lbl">Complaints Analyzed</span>
+                </div>
+                <div class="hero-stat-item">
+                  <span class="hero-stat-val" id="landing-stat-speed">&lt; 1.2s</span>
+                  <span class="hero-stat-lbl">AI Routing Speed</span>
+                </div>
+                <div class="hero-stat-item">
+                  <span class="hero-stat-val" id="landing-stat-departments">5</span>
+                  <span class="hero-stat-lbl">Public Departments</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Hero Interactive Preview Card -->
+            <div class="hero-visual">
+              <div class="hero-card-preview">
+                <div class="preview-header">
+                  <span class="result-tag">⚡ Live AI Analysis Stream</span>
+                  <span class="preview-badge">🔴 High Priority</span>
+                </div>
+                <div class="preview-body">
+                  <div class="preview-query">"There is a dangerous deep pothole near our school gate..."</div>
+                  <div class="preview-meta-row">
+                    <span>📍 Near DAV Public School</span>
+                    <span>⏱️ Just now</span>
+                  </div>
+                </div>
+                <div class="preview-ai-output">
+                  <div class="preview-ai-title">🤖 AI Automated Routing</div>
+                  <div class="preview-ai-desc">
+                    Assigned to <strong>Municipal Corporation (PWD)</strong> • Severity: <strong>High</strong> • Est. Action: <strong>Within 24 Hours</strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature Cards Section -->
+      <section class="section-features">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-tag">Core Capabilities</span>
+            <h2 class="section-title">Smart Infrastructure Redressal</h2>
+            <p class="section-desc">Designed as a lightweight, transparent public digital good for municipalities and citizens.</p>
+          </div>
+
+          <div class="features-grid">
+            <!-- Card 1 -->
+            <div class="feature-card">
+              <div class="feature-icon-wrapper">🤖</div>
+              <h3 class="feature-title">AI Analysis</h3>
+              <p class="feature-text">
+                Automatically understands and classifies unstructured citizen complaints into structured governance categories in real-time.
+              </p>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="feature-card">
+              <div class="feature-icon-wrapper">⚡</div>
+              <h3 class="feature-title">Smart Priority</h3>
+              <p class="feature-text">
+                Identifies critical safety issues that need immediate municipal attention first using urgency detection heuristics.
+              </p>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="feature-card">
+              <div class="feature-icon-wrapper">🛡️</div>
+              <h3 class="feature-title">Transparent Tracking</h3>
+              <p class="feature-text">
+                Tracks civic complaints transparently from initial citizen submission through department escalation to final resolution.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5-Step Process Section -->
+      <section class="section-workflow">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-tag">Public Service Pipeline</span>
+            <h2 class="section-title">How Civic AI Works</h2>
+            <p class="section-desc">A 5-step automated workflow bridging citizens and administrative departments.</p>
+          </div>
+
+          <div class="workflow-steps-horizontal">
+            <!-- Step 1 -->
+            <div class="step-card">
+              <div class="step-number">1</div>
+              <div class="step-icon">🗣️</div>
+              <div class="step-title">Citizen Reports</div>
+              <div class="step-desc">Submits issue in simple natural language</div>
+              <div class="step-arrow-connector">➔</div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="step-card">
+              <div class="step-number">2</div>
+              <div class="step-icon">🤖</div>
+              <div class="step-title">AI Analysis</div>
+              <div class="step-desc">Extracts key domain terms & category</div>
+              <div class="step-arrow-connector">➔</div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="step-card">
+              <div class="step-number">3</div>
+              <div class="step-icon">🚨</div>
+              <div class="step-title">Priority Detection</div>
+              <div class="step-desc">Flags high-risk safety hazards</div>
+              <div class="step-arrow-connector">➔</div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="step-card">
+              <div class="step-number">4</div>
+              <div class="step-icon">🏛️</div>
+              <div class="step-title">Dept. Assignment</div>
+              <div class="step-desc">Directs ticket to responsible agency</div>
+              <div class="step-arrow-connector">➔</div>
+            </div>
+
+            <!-- Step 5 -->
+            <div class="step-card">
+              <div class="step-number">5</div>
+              <div class="step-icon">✅</div>
+              <div class="step-title">Resolution Tracking</div>
+              <div class="step-desc">Live status updates until resolved</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <!-- -----------------------------------------------------------------------
+         VIEW 2: REPORT AN ISSUE
+         ----------------------------------------------------------------------- -->
+    <section class="view-section" id="view-report">
+      <div class="container">
+        <div class="report-view-container">
+          <div class="form-card">
+            <div class="form-header">
+              <h2>Report a Citizen Grievance</h2>
+              <p>Speak up about potholes, garbage, broken streetlights, water leaks, or public infrastructure.</p>
+            </div>
+
+            <!-- Quick Demo Pre-fill Prompts -->
+            <div class="quick-fill-section">
+              <div class="quick-fill-label">
+                <span>⚡ Quick Test Examples (Click to fill):</span>
+              </div>
+              <div class="quick-fill-chips">
+                <button type="button" class="chip-btn" onclick="CivicApp.fillDemoPreset('school_pothole')">
+                  🚧 School Danger Pothole (High Prio)
+                </button>
+                <button type="button" class="chip-btn" onclick="CivicApp.fillDemoPreset('market_garbage')">
+                  🧹 Market Waste Overflow (Sanitation)
+                </button>
+                <button type="button" class="chip-btn" onclick="CivicApp.fillDemoPreset('water_leak')">
+                  💧 Pipeline Leakage (Water Dept)
+                </button>
+                <button type="button" class="chip-btn" onclick="CivicApp.fillDemoPreset('dark_street')">
+                  ⚡ Broken Streetlight (Electricity)
+                </button>
+              </div>
+            </div>
+
+            <!-- Complaint Submission Form -->
+            <form id="complaint-form" onsubmit="CivicApp.handleFormSubmit(event)">
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="citizen-name">Citizen Name <span class="required-mark">*</span></label>
+                  <input type="text" id="citizen-name" class="form-control" placeholder="e.g. Aarav Sharma" required value="Aditya Kumar">
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="citizen-location">Location / Area <span class="required-mark">*</span></label>
+                  <input type="text" id="citizen-location" class="form-control" placeholder="e.g. Near DAV School, Ranchi" required value="Near City High School Gate">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="complaint-desc">Problem Description <span class="required-mark">*</span></label>
+                <textarea id="complaint-desc" class="form-control" rows="4" placeholder="Describe your problem, e.g. There is a dangerous pothole near our school gate." required>There is a dangerous pothole near our school.</textarea>
+                <div class="form-hint">💡 Civic AI will automatically analyze keywords, assign priority, and route to the correct municipal department.</div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="category-select">Optional Category (Or let AI auto-detect)</label>
+                <select id="category-select" class="form-control">
+                  <option value="Auto">✨ Auto-Detect with AI (Recommended)</option>
+                  <option value="Road">🚧 Road & Infrastructure</option>
+                  <option value="Sanitation">🧹 Sanitation & Waste</option>
+                  <option value="Water">💧 Water Supply & Leakage</option>
+                  <option value="Electricity">⚡ Electricity & Streetlights</option>
+                  <option value="Education">🏫 Education & Schools</option>
+                  <option value="Other">🏛️ Other Local Administration</option>
+                </select>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-lg" id="btn-submit-complaint" style="width: 100%;">
+                <span>🤖</span> Analyze &amp; Submit Issue
+              </button>
+            </form>
+
+            <!-- AI Scanning Animation -->
+            <div class="ai-analyzing-overlay" id="ai-loading-overlay">
+              <div class="scanner-radar"></div>
+              <div class="analyzing-text">🤖 Civic AI is analyzing your complaint...</div>
+              <div class="analyzing-subtext">Extracting keywords, assessing public safety risk &amp; mapping municipal jurisdiction</div>
+            </div>
+
+            <!-- AI Analysis Result Card -->
+            <div class="ai-result-card" id="ai-result-card">
+              <div class="result-card-header">
+                <span class="result-tag">✨ AI ANALYSIS RESULT</span>
+                <span id="result-status-badge" class="badge-priority high">🔴 Status: Pending</span>
+              </div>
+
+              <div class="result-grid">
+                <div class="result-field">
+                  <div class="result-field-label">Category</div>
+                  <div class="result-field-val" id="result-category">🚧 Road &amp; Infrastructure</div>
+                </div>
+
+                <div class="result-field">
+                  <div class="result-field-label">Priority Level</div>
+                  <div class="result-field-val" id="result-priority">
+                    <span class="badge-priority high" id="result-priority-badge">HIGH</span>
+                  </div>
+                </div>
+
+                <div class="result-field full-width">
+                  <div class="result-field-label">Responsible Department</div>
+                  <div class="result-field-val" id="result-department">🏛️ Municipal Corporation</div>
+                </div>
+              </div>
+
+              <div class="result-summary-box">
+                <div class="result-summary-title">🤖 AI Executive Summary</div>
+                <div class="result-summary-text" id="result-summary">
+                  "Dangerous road damage reported near a school area."
+                </div>
+              </div>
+
+              <div class="result-actions">
+                <button type="button" class="btn btn-secondary" onclick="CivicApp.resetForm()">
+                  <span>🔄</span> Submit Another
+                </button>
+                <button type="button" class="btn btn-primary" onclick="CivicApp.navigateTo('dashboard')">
+                  <span>📊</span> View in Dashboard ➔
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- -----------------------------------------------------------------------
+         VIEW 3: ADMIN DASHBOARD
+         ----------------------------------------------------------------------- -->
+    <section class="view-section" id="view-dashboard">
+      <div class="container">
+        <div class="dashboard-view-container">
+          
+          <!-- Dashboard Header -->
+          <div class="dashboard-header">
+            <div class="dash-title-group">
+              <h1>Civic AI Administration Dashboard</h1>
+              <p class="dash-subtitle">Real-time public grievance triage, AI priority monitoring &amp; department workflow dispatch.</p>
+            </div>
+            <div class="dash-header-actions">
+              <button class="btn btn-secondary btn-sm" onclick="CivicApp.exportDataCSV()" title="Download complaints CSV">
+                <span>📥</span> Export CSV
+              </button>
+              <button class="btn btn-secondary btn-sm" onclick="CivicApp.resetToSeedData()" title="Reset demo dataset">
+                <span>🔄</span> Reset Demo Data
+              </button>
+              <button class="btn btn-primary btn-sm" onclick="CivicApp.navigateTo('report')">
+                <span>+</span> New Issue
+              </button>
+            </div>
+          </div>
+
+          <!-- 4 Statistic KPI Cards -->
+          <div class="kpi-stats-grid">
+            <!-- KPI 1: Total Complaints -->
+            <div class="kpi-card total">
+              <div class="kpi-info">
+                <div class="kpi-info-lbl">Total Complaints</div>
+                <div class="kpi-info-val" id="kpi-total">12</div>
+              </div>
+              <div class="kpi-icon-pill">📋</div>
+            </div>
+
+            <!-- KPI 2: High Priority -->
+            <div class="kpi-card high">
+              <div class="kpi-info">
+                <div class="kpi-info-lbl">High Priority</div>
+                <div class="kpi-info-val" id="kpi-high" style="color: var(--prio-high-text);">4</div>
+              </div>
+              <div class="kpi-icon-pill">🚨</div>
+            </div>
+
+            <!-- KPI 3: In Progress -->
+            <div class="kpi-card progress">
+              <div class="kpi-info">
+                <div class="kpi-info-lbl">In Progress</div>
+                <div class="kpi-info-val" id="kpi-progress" style="color: var(--status-progress-text);">5</div>
+              </div>
+              <div class="kpi-icon-pill">⚙️</div>
+            </div>
+
+            <!-- KPI 4: Resolved -->
+            <div class="kpi-card resolved">
+              <div class="kpi-info">
+                <div class="kpi-info-lbl">Resolved</div>
+                <div class="kpi-info-val" id="kpi-resolved" style="color: var(--status-resolved-text);">3</div>
+              </div>
+              <div class="kpi-icon-pill">✅</div>
+            </div>
+          </div>
+
+          <!-- Charts Layout -->
+          <div class="charts-grid">
+            <!-- Category Breakdown Chart -->
+            <div class="chart-panel-card">
+              <div class="chart-panel-header">
+                <div class="chart-panel-title">
+                  <span>📊</span> Complaints by Category
+                </div>
+                <span style="font-size: 0.8rem; color: var(--text-subtle);">Distribution across 5 civic domains</span>
+              </div>
+              <div id="category-chart-container">
+                <!-- Dynamically rendered by charts.js -->
+              </div>
+            </div>
+
+            <!-- Priority Breakdown Chart -->
+            <div class="chart-panel-card">
+              <div class="chart-panel-header">
+                <div class="chart-panel-title">
+                  <span>🎯</span> Priority Breakdown
+                </div>
+                <span style="font-size: 0.8rem; color: var(--text-subtle);">AI Risk Assessment</span>
+              </div>
+              <div id="priority-chart-container">
+                <!-- Dynamically rendered by charts.js -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Complaints Table & Filter Toolbar -->
+          <div class="table-management-card">
+            <div class="table-toolbar">
+              <div class="table-search-box">
+                <span class="table-search-icon">🔍</span>
+                <input type="text" id="table-search-input" class="table-search-input" placeholder="Search by ID, keyword, citizen, location..." oninput="CivicApp.handleSearch(this.value)">
+              </div>
+
+              <!-- Filter Buttons -->
+              <div class="table-filters-group">
+                <button class="filter-chip-btn active" data-filter="all" onclick="CivicApp.setFilter('all')">All</button>
+                <button class="filter-chip-btn" data-filter="high" onclick="CivicApp.setFilter('high')">🚨 High Priority</button>
+                <button class="filter-chip-btn" data-filter="pending" onclick="CivicApp.setFilter('pending')">⏳ Pending</button>
+                <button class="filter-chip-btn" data-filter="in_progress" onclick="CivicApp.setFilter('in_progress')">⚙️ In Progress</button>
+                <button class="filter-chip-btn" data-filter="resolved" onclick="CivicApp.setFilter('resolved')">✅ Resolved</button>
+              </div>
+            </div>
+
+            <!-- Data Table -->
+            <div class="table-responsive-wrapper">
+              <table class="civic-table">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Complaint</th>
+                    <th>Location</th>
+                    <th>Category</th>
+                    <th>Priority</th>
+                    <th>Department</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody id="complaints-table-body">
+                  <!-- Dynamically rendered by app.js -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- -----------------------------------------------------------------------
+         VIEW 4: ABOUT / DPI ARCHITECTURE
+         ----------------------------------------------------------------------- -->
+    <section class="view-section" id="view-about">
+      <div class="container">
+        <div class="about-view-container">
+          
+          <!-- Card 1: Why Civic AI -->
+          <div class="about-card">
+            <div class="section-tag">Hackathon Theme: AI for DPI &amp; Governance</div>
+            <h2>Why Civic AI?</h2>
+            <p>
+              Citizen feedback can be difficult to organize when hundreds of requests are submitted across various channels without categorization. Local administrative bodies often struggle with unstructured messages, misplaced complaints, and delayed response times.
+            </p>
+            <p>
+              <strong>Civic AI</strong> provides a simple, intelligent digital layer that empowers both citizens and governance bodies:
+            </p>
+
+            <div class="benefits-list">
+              <div class="benefit-item">
+                <div class="benefit-item-icon">📥</div>
+                <div class="benefit-item-text">
+                  <h4>Collect Citizen Complaints</h4>
+                  <p>Clean, accessible natural-language reporting for ordinary citizens.</p>
+                </div>
+              </div>
+
+              <div class="benefit-item">
+                <div class="benefit-item-icon">🗂️</div>
+                <div class="benefit-item-text">
+                  <h4>Categorize Problems</h4>
+                  <p>Automatic classification into Road, Sanitation, Water, Electricity, and Education.</p>
+                </div>
+              </div>
+
+              <div class="benefit-item">
+                <div class="benefit-item-icon">🚨</div>
+                <div class="benefit-item-text">
+                  <h4>Identify Priority</h4>
+                  <p>Immediate detection of high-risk public safety hazards near schools and hospitals.</p>
+                </div>
+              </div>
+
+              <div class="benefit-item">
+                <div class="benefit-item-icon">🏛️</div>
+                <div class="benefit-item-text">
+                  <h4>Suggest Departments</h4>
+                  <p>Instant jurisdictional routing to Municipal PWD, Jal Board, or Electricity boards.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: Built for Digital Public Infrastructure -->
+          <div class="about-card">
+            <h2>Built for Digital Public Infrastructure</h2>
+            <p>
+              This hackathon MVP demonstrates how artificial intelligence and automated heuristic processing can transform unstructured citizen feedback into structured, actionable, and auditable governance data.
+            </p>
+
+            <div class="dpi-architecture-diagram">
+              <h3>Civic AI — Digital Public Infrastructure Pipeline</h3>
+              <div class="arch-flow-grid">
+                <div class="arch-box">
+                  <div class="arch-box-title">1. Citizen Layer</div>
+                  <div class="arch-box-desc">Zero-friction mobile/web submission with natural text &amp; location.</div>
+                </div>
+                <div class="arch-box">
+                  <div class="arch-box-title">2. AI Logic Layer</div>
+                  <div class="arch-box-desc">Local NLP keywords, urgency weighting &amp; jurisdiction mapping.</div>
+                </div>
+                <div class="arch-box">
+                  <div class="arch-box-title">3. Action Layer</div>
+                  <div class="arch-box-desc">Admin dashboard, department triage &amp; live lifecycle tracking.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =========================================================================
+       FOOTER
+       ========================================================================= -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div style="display: flex; align-items: center; gap: 0.5rem;">
+        <span style="font-weight: 700; color: var(--primary-900);">CIVIC AI</span>
+        <span>• "Your Voice. Our Priority."</span>
+      </div>
+      <div class="footer-theme-tag">
+        🏛️ AI for Digital Public Infrastructure &amp; Governance
+      </div>
+      <div>
+        College Hackathon MVP • 100% Client-Side AI
+      </div>
+    </div>
+  </footer>
+
+  <!-- =========================================================================
+       TOAST NOTIFICATION CONTAINER
+       ========================================================================= -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Scripts -->
+  <script src="js/ai-engine.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/charts.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
